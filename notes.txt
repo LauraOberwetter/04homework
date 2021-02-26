@@ -1,6 +1,0 @@
-start with a page with a start button 
-
-1) quiz
-2) timer
-3) high score
-    local storage to keep high scores
