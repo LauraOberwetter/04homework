@@ -4,6 +4,7 @@ var timerElement = document.querySelector("#timer-count");
 // content display
 var startScreenEl = document.querySelector("#start-screen");
 var quizScreenEl = document.querySelector("#quiz-screen");
+var result = document.querySelector("#resultNotification");
 // Q and A
 var questionEl = document.querySelector("#question");
 var answer1 = document.querySelector("#a1");
@@ -11,6 +12,7 @@ var answer2 = document.querySelector("#a2");
 var answer3 = document.querySelector("#a3");
 var answer4 = document.querySelector("#a4");
 var btn = document.querySelector(".btn");
+
 
 
 var timer;
@@ -55,7 +57,15 @@ let i = 0;
 btn.addEventListener("click", () => {
   
   console.log(event.target.textContent); 
-  if (event.target.textContent === quizOptions[i].answer) {}
+  if (event.target.textContent === quizOptions[i].answer) {
+    result.textContent = "Correct!";
+    result.style.color = "lawngreen";
+  } else {
+    result.textContent = "Incorrect";
+    result.style.color = "red";
+    //deduct 10 seconds from the clock
+
+  }
 
   questionEl.textContent = quizOptions[i].question; // THEN changes question
   answer1.textContent = quizOptions[i].choice[0];
