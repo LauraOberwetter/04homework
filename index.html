@@ -7,29 +7,40 @@
     <title>Coding Quiz</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
-    <script src='script.js'></script>
+    
 </head>
 
 <body>
     <header>
         <p id = "score"> View Highscores</p>
-        <p class="timer-count">10</p>
+        <p id ="timer-count">10</p>
     </header>
 
 
-    <section id = "landingText">
-        <h1>Coding Quiz</h1>
+    <section class = "container">
 
-            <h2>Answer as many questions as you can before time runs out. Answer incorrectly and lose 10 seconds. The game ends
-        when you answer 10 questions, or when time runs out. Save your initials and high score when the game is over!</h2>
+        <div id = "start-screen" class = "start-screen">
+            <h1 id = "title">Coding Quiz</h1>
+            <h2 id = "instructions">Answer as many questions as you can before time runs out. Answer incorrectly and lose 10 seconds. The game ends when you answer 10 questions, or when time runs out. Save your initials and high score when the game is over!</h2>
+        </div>
+<!-- look into using inner HTML or another js method to dynamically change this text content -->
+        <div  id = "quiz-screen" class = "hide">
+            <h2 id = "question">A function stored as a property is a ________</h2>
+                <div class = "btn">
+                    <button id = "a1">Object</button>
+                    <button id = "a2">Method</button>
+                    <button id = "a3">Style Sheet</button>
+                    <button id = "a4">Key Value</button>
+                </div>
+        </div>
 
-        <button class="start-button">Start</button>
+        <button id="start-button">Start</button>
 
     </section>
 
 
-  
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src='script.js'></script>
 </body>
 
 </html>

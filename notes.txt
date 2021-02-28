@@ -4,3 +4,92 @@ start with a page with a start button
 2) timer
 3) high score
     local storage to keep high scores
+
+
+        // timer starts counting down when the start button is clicked
+
+document.getElementsByClassName("start-button").onclick =
+    function startTimer() {
+        timer = setInterval (function() {
+            timerCount--;
+            timerElement.textContent = timerCount;
+            // if (timerCount >= 0) {
+            //     if (isWin && timerCount > 0) {
+            //         clearInterval(timer);
+            //         winGame();
+            //     }
+            // }
+    if (timerCount === 0) {
+        // Clears interval
+        clearInterval(timer);
+        loseGame();
+      }
+    }, 1000);
+  }
+
+// provided by myBCS learning assistant
+
+    function startQuiz() {
+  // hide start screen
+  var startScreenEl = document.getElementById("start-screen");
+  startScreenEl.setAttribute("class", "hide");
+
+  // un-hide questions section
+  questionsEl.removeAttribute("class");
+
+  // start timer
+  timerId = setInterval(clockTick, 1000);
+
+  // show starting time
+  timerEl.textContent = time;
+
+  getQuestion();
+}
+
+these are the steps I think will help you move ahead with your homework :
+1. Once you start your quiz/timer you want to show a question in your dom for the user to answer
+2. Once you start your timer you should be displaying a question which stops once you hit enter or answer
+3. You will also need a function in which you keep track of the correct or wrong answers
+You can make your beginning logic similar to how you have it started in your repo but this is one of the important functions that will help you and give you a solid place to begin
+
+
+
+// uisng css display:none
+
+
+
+
+var giveQuiz = function (quizQA) {
+   var quizQ = quizQA.question;
+   var quizA = quizQA.answer;
+  // change the text written to the HTML doc
+  questionEl.innerHTML = // variable containing question text // questionWithAnswers array [1-5] object q
+  answer1.innerHTML = // variable containing answer 1 text // questionWithAnswers array [1-5] object q
+  answer2.innerHTML = // variable containing answer 2 text // questionWithAnswers array [1-5] object a [1-4]
+  answer3.innerHTML = // variable containing answer 3 text // questionWithAnswers array [1-5] object a [1-4]
+  answer4.innerHTML = // variable containing answer 4 text // questionWithAnswers array [1-5] object a [1-4]
+  answer5.innerHTML = // variable containing answer 5 text // questionWithAnswers array [1-5] object a [1-4]
+
+var quizPrompt = [
+  {q: }
+
+
+
+
+]
+
+ for (var i = 0; i < questionWithAnswers.length; i++) {
+    giveQuiz(questionWithAnswers[i].q, questionWithAnswers[i].a); //write function for variable giveQuestion
+
+var question1 = "what is my name";
+var choice1 = ["Laura", "Lauren", "Laurie", "Laureli"];
+var answer1 = choice1[0];
+console.log(answer1);
+
+var question2 = "what is my age";
+var choice2 = [27, 22, 31, 24];
+var answer2 = choice2[3]
+
+var question3 = "where am I from";
+var choice3 = ["Madison", "Chicago", "Milwaukee", "NYC"];
+var anser3 = choice3[0];
