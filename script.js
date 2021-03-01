@@ -10,7 +10,7 @@ var quizScreenEl = document.querySelector("#quiz-screen");
 var endScreenEl = document.querySelector("#end-screen");
 var result = document.querySelector("#resultNotification");
 
-// Q and A vars
+// Q & A vars
 var questionEl = document.querySelector("#question");
 var answer1 = document.querySelector("#a1");
 var answer2 = document.querySelector("#a2");
@@ -18,10 +18,18 @@ var answer3 = document.querySelector("#a3");
 var answer4 = document.querySelector("#a4");
 var btn = document.querySelector(".btn");
 
-// functions
+// score vars
+var points = document.querySelector("#points");
+points = 0;
+var endButton = document.querySelector("#enter");
+var initials = document.querySelector("#initials").value;
 
+
+
+
+// functions
 function renderQuestion() {
-  questionEl.textContent = quizOptions[i].question; // THEN changes question
+  questionEl.textContent = quizOptions[i].question;
   answer1.textContent = quizOptions[i].choice[0];
   answer2.textContent = quizOptions[i].choice[1];
   answer3.textContent = quizOptions[i].choice[2];
@@ -42,8 +50,15 @@ function countdownTimer() {
 
 }
 
+function renderInitialInput () {
+  var input = document.createElement("INPUT");
+  x.setAttribute("type", "text");
+  x.setAttribute("value", "Enter initials here");
+  document.body.appendChild(x);
+}
+
 // START QUIZ
-endScreenEl.addEventListener("load", hideEnd);
+window.addEventListener("load", hideEnd);
 function hideEnd () {
   endScreenEl.style.display = "none";
 }
@@ -58,13 +73,11 @@ function startQuiz() { //quiz start function initiated by start button
   endScreenEl.style.display = "none"; // hide start button
 
   renderQuestion() // populate questions and answer choices
-  console.log(quizOptions[i].answer + " is the corresponding answer(36)");
 
   countdownTimer() // start countdown
 }
 
 // QUESTIONS
-
 var quizOptions = [
   { // object i = 0
     question: "what is my name",
@@ -87,7 +100,6 @@ var quizOptions = [
 ]
 
 // CHECK ANSWER
-
 let i = 0;
 btn.addEventListener("click", () => {
   console.log('ANSWER WAS CLICKED')
@@ -96,6 +108,7 @@ btn.addEventListener("click", () => {
   if (event.target.textContent == quizOptions[i].answer) {
     result.textContent = "Correct!";
     result.style.color = "lawngreen";
+    points ++;
   } else {
     result.textContent = "Incorrect";
     result.style.color = "red";
@@ -103,35 +116,36 @@ btn.addEventListener("click", () => {
 
   }
 
-  // INCREASE INDEX, MOVE TO NEXT QUESTION
-  console.log(i);
-
+// INCREASE INDEX, MOVE TO NEXT QUESTION
   i++;
   renderQuestion()
+
+
+// END SCREEN
   if (i > quizOptions.length) {
     function showEnd () {
-      endScreenEl.style.display = "inline";
-    }
-  }
+      endScreenEl.style.display = "inline"; // display end screen
+      
+      points.textContent = points; // show score
+      console.log("score = " + points);
+      
+      renderInitialInput();
 
-});
+      endButton.addEventListener("click", function(event) {
+      event.preventDefault();
+
+      if (initials === "") {
+        displayMessage("error", "Please enter your initials");
+      } else {
+        displayMessage("success", "Score saved");
+    
+        localStorage.setItem("initials", initials);
+      }
+    });
 
 
 
 
-
-
-
-// data struture to hold questions/answers // loop an array of objects
-
-
-
-
-//
-
-// end data structure
-
-// questions and answers
 
 
 
