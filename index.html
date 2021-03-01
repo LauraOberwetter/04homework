@@ -13,7 +13,7 @@
 <body>
     <header>
         <p id = "score"> View Highscores</p>
-        <p id ="timer-count">10</p>
+        <div id = "countdown"> Seconds Left: 60</div>
     </header>
 
 
@@ -23,8 +23,7 @@
             <h1 id = "title">Coding Quiz</h1>
             <h2 id = "instructions">Answer as many questions as you can before time runs out. Answer incorrectly and lose 10 seconds. The game ends when you answer 10 questions, or when time runs out. Save your initials and high score when the game is over!</h2>
         </div>
-<!-- look into using inner HTML or another js method to dynamically change this text content -->
-        <div  id = "quiz-screen" class = "hide">
+        <div  id = "quiz-screen">
             <h2 id = "question">QUESTION</h2>
                 <div class = "btn">
                     <button id = "a1">A1</button>
@@ -34,7 +33,10 @@
                 </div>
             <h3 id = "resultNotification"> </h3>
         </div>
-
+        <div id = "end-screen">
+            <h1>Game Over</h1>
+            <h2 id = "instructions">Your score is ________. Enter your initials</h2>
+        </div>
         <button id="start-button" class = "btn">Start</button>
 
     </section>

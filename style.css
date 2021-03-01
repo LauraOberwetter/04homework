@@ -18,7 +18,25 @@ body {
 }
 
 
+h1 {
+    color: lawngreen;
+    font-family: "MadisonSquare", serif;
+    font-size: 7em;
+    letter-spacing: 5px;
+    margin: 10px;
+    text-align: center;
 
+}
+
+h2 {
+    color: white;
+    padding: 40px;
+    text-align: center;
+    font-family: "futura";
+    font-weight: lighter;
+}
+
+/* 
 #title {
     color: lawngreen;
     font-family: "MadisonSquare", serif;
@@ -39,7 +57,7 @@ body {
 
 .hide {
     display: none;
-}
+} */
 
 #quiz-screen {
     display: none;
@@ -62,10 +80,5 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-}
-
-#timer-count {
-    color: white;
-    font-family: "futura";
 }
 
