@@ -36,28 +36,6 @@ h2 {
     font-weight: lighter;
 }
 
-/* 
-#title {
-    color: lawngreen;
-    font-family: "MadisonSquare", serif;
-    font-size: 7em;
-    letter-spacing: 5px;
-    margin: 10px;
-    text-align: center;
-
-}
-
-#instructions {
-    color: white;
-    padding: 40px;
-    text-align: center;
-    font-family: "futura";
-    font-weight: lighter;
-}
-
-.hide {
-    display: none;
-} */
 
 #quiz-screen {
     display: none;

@@ -22,10 +22,7 @@ var btn = document.querySelector(".btn");
 var points = document.querySelector("#points");
 points = 0;
 var endButton = document.querySelector("#enter");
-var initials = document.querySelector("#initials").value;
-
-
-
+var initials = document.querySelector("#initials");
 
 // functions
 function renderQuestion() {
@@ -35,6 +32,7 @@ function renderQuestion() {
   answer3.textContent = quizOptions[i].choice[2];
   answer4.textContent = quizOptions[i].choice[3];
 }
+
 
 function countdownTimer() {
   var interval = setInterval(function () {
@@ -50,23 +48,33 @@ function countdownTimer() {
 
 }
 
-function renderInitialInput () {
-  var input = document.createElement("INPUT");
-  x.setAttribute("type", "text");
-  x.setAttribute("value", "Enter initials here");
-  document.body.appendChild(x);
+function showEnd () {
+  endScreenEl.style.display = "inline"; // display end screen
+
+  points.textContent = points; // show score
+  console.log("score = " + points);
+
+  renderInitialInput();
 }
+
+
+function renderInitialInput() {
+   var input = document.createElement("INPUT");
+   x.setAttribute("type", "text");
+   x.setAttribute("value", "Enter initials here");
+   document.body.appendChild(x);
+ } 
 
 // START QUIZ
 window.addEventListener("load", hideEnd);
-function hideEnd () {
+function hideEnd() {
   endScreenEl.style.display = "none";
 }
 
 
 startButton.addEventListener("click", startQuiz); //start game by clicking start function
 function startQuiz() { //quiz start function initiated by start button
-  
+
   quizScreenEl.style.display = "inline"; //show the quiz screen
   startScreenEl.style.display = "none"; //hide the start screen 
   startButton.style.display = "none"; // hide start button
@@ -108,7 +116,7 @@ btn.addEventListener("click", () => {
   if (event.target.textContent == quizOptions[i].answer) {
     result.textContent = "Correct!";
     result.style.color = "lawngreen";
-    points ++;
+    points++;
   } else {
     result.textContent = "Incorrect";
     result.style.color = "red";
@@ -116,38 +124,70 @@ btn.addEventListener("click", () => {
 
   }
 
-// INCREASE INDEX, MOVE TO NEXT QUESTION
+  // INCREASE INDEX, MOVE TO NEXT QUESTION
   i++;
-  renderQuestion()
-
 
 // END SCREEN
   if (i > quizOptions.length) {
-    function showEnd () {
-      endScreenEl.style.display = "inline"; // display end screen
-      
-      points.textContent = points; // show score
-      console.log("score = " + points);
-      
-      renderInitialInput();
+   showEnd()
+   return;
+  }
+  renderQuestion()
 
-      endButton.addEventListener("click", function(event) {
-      event.preventDefault();
+});
 
-      if (initials === "") {
-        displayMessage("error", "Please enter your initials");
-      } else {
-        displayMessage("success", "Score saved");
-    
-        localStorage.setItem("initials", initials);
-      }
-    });
+  endButton.addEventListener("click", function (event) {
+    event.preventDefault();
 
+    if (initials === "") {
+      displayMessage("error", "Please enter your initials");
+    } else {
+      displayMessage("success", "Score saved");
+
+      localStorage.setItem("initials", initials);
+    }
+  }); 
 
 
+/* var getScores = JSON.parse(window.localStorage.getItem("scoreCombo")) == 
+
+submitBtn.addEventListener("click", function(event) {
+  event.preventDefualt();
+  var scoreCombo = {
+    initials: userInitials.value,
+    secondsLeft: seconds,
+  }
+
+  let oldScores = JSON.parse(window.localStorage.getItem("scoreCombo") || []; // get scoreCombo or return empty list
+    oldScores.push(scoreCombo);
+    window.localStorage.setItem("scoreCombo", JSON.stringify(oldScores))
+    console.log(oldScores);
+
+  userInfo.push(scoreCombo)
+  console.log(userInfo, "scores" + getScores)
+
+  clearScores.addEventListner("click", function(){
+
+function setHighScores () {
+  for (let score = .....) {
+
+
+
+    append high score list to <li>
+
+
+  }
+}
+
+
+  })
 
 
 
 
 
+}
+function setHighScores () {
 
+
+}*/

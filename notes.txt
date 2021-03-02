@@ -93,3 +93,42 @@ var answer2 = choice2[3]
 var question3 = "where am I from";
 var choice3 = ["Madison", "Chicago", "Milwaukee", "NYC"];
 var anser3 = choice3[0];
+
+
+// added event listener with nextQuestion funciton -- function would loop all the way through the options and return the last one
+btn.addEventListener("click", nextQuestion); // click any of the buttons, move to the next question
+
+function nextQuestion() { // make function to change the question and the answer choices
+  for (var i = 0; i < questions.length; i++) {
+    questionEl.innerHTML = questions[i];
+  }
+}; 
+
+
+function startQuiz() { //quiz start function
+  quizScreenEl.style.display = "inline"; //show the quiz screen
+  startScreenEl.style.display = "none"; //hide the start screen 
+  startButton.style.display = "none"; // hide start button
+
+  //upon hitting start, we wanna show the first question.
+  questionEl.textContent = quizOptions[i].question;
+  answer1.textContent = quizOptions[i].choice[0];
+  answer2.textContent = quizOptions[i].choice[1];
+  answer3.textContent = quizOptions[i].choice[2];
+  answer4.textContent = quizOptions[i].choice[3];
+
+  //start the timer
+
+}
+
+
+//function compressing text content stuff
+function renderQuestion(){
+  //this shows the i-th question on the page.
+  questionEl.textContent = quizOptions[i].question;
+  answer1.textContent = quizOptions[i].choice[0];
+  answer2.textContent = quizOptions[i].choice[1];
+  answer3.textContent = quizOptions[i].choice[2];
+  answer4.textContent = quizOptions[i].choice[3];
+  console.log(quizOptions[i]);
+}
