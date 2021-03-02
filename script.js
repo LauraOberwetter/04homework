@@ -50,6 +50,8 @@ function countdownTimer() {
 
 function showEnd () {
   endScreenEl.style.display = "inline"; // display end screen
+  startScreenEl.style.display = "none"; //hide the start screen 
+  quizScreenEl.style.display = "inline"; //show the quiz screen
 
   points.textContent = points; // show score
   console.log("score = " + points);
@@ -88,22 +90,34 @@ function startQuiz() { //quiz start function initiated by start button
 // QUESTIONS
 var quizOptions = [
   { // object i = 0
-    question: "what is my name",
-    choice: ["Laura", "Lauren", "Laurie", "Laureli"],
-    answer: "Laura",
+    question: "A _____ takes an input and returns an output by performing a task or calculating a value",
+    choice: ["function", "method", "boolean", "jquery"],
+    answer: "function",
   },
 
   { // object i = 1
-    question: "what is my age",
-    choice: [27, 22, 31, 24],
-    answer: 24,
+    question: "what is an example of a boolean value",
+    choice: ["truthy", "falsey", "true", "yes"],
+    answer: "true",
   },
 
   { // object i = 2
-    question: "where am I from",
-    choice: ["Madison", "Chicago", "Milwaukee", "NYC"],
-    answer: "Madison",
-  }
+    question: "JavaScript is a _____",
+    choice: ["Programming Language", "Rainforest", "DOM", "Browser"],
+    answer: "Programming Language",
+  },
+
+  { // object i = 3
+    question: "NaN stands for _____",
+    choice: ["Not a Node", "Norning and Night", "Not a Number", "Not a Noodle"],
+    answer: "Not a Number",
+  },
+
+  { // object i = 4
+    question: "JavaScript first appeared in",
+    choice: [1214, 1978, 1995, 1997],
+    answer: 1995,
+  },
 
 ]
 
@@ -117,10 +131,12 @@ btn.addEventListener("click", () => {
     result.textContent = "Correct!";
     result.style.color = "lawngreen";
     points++;
+    console.log("IF TRIGGERED. i = " + i)
   } else {
     result.textContent = "Incorrect";
     result.style.color = "red";
     seconds -= 10; //deduct 10 seconds from the clock
+    console.log("ELSE TRIGGERED, i = " + i)
 
   }
 
@@ -128,13 +144,14 @@ btn.addEventListener("click", () => {
   i++;
 
 // END SCREEN
-  if (i > quizOptions.length) {
+  if (i > quizOptions.length-1) {
    showEnd()
    return;
   }
   renderQuestion()
 
 });
+
 
   endButton.addEventListener("click", function (event) {
     event.preventDefault();
@@ -150,44 +167,25 @@ btn.addEventListener("click", () => {
 
 
 /* var getScores = JSON.parse(window.localStorage.getItem("scoreCombo")) == 
-
 submitBtn.addEventListener("click", function(event) {
   event.preventDefualt();
   var scoreCombo = {
     initials: userInitials.value,
     secondsLeft: seconds,
   }
-
   let oldScores = JSON.parse(window.localStorage.getItem("scoreCombo") || []; // get scoreCombo or return empty list
     oldScores.push(scoreCombo);
     window.localStorage.setItem("scoreCombo", JSON.stringify(oldScores))
     console.log(oldScores);
-
   userInfo.push(scoreCombo)
   console.log(userInfo, "scores" + getScores)
-
   clearScores.addEventListner("click", function(){
-
 function setHighScores () {
   for (let score = .....) {
-
-
-
     append high score list to <li>
-
-
   }
 }
-
-
   })
-
-
-
-
-
 }
 function setHighScores () {
-
-
 }*/
